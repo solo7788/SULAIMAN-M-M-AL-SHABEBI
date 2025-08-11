@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sulaiman Al‑Shabebi | Mechatronics</title>
+  <meta name="description" content="Bilingual clean portfolio with built‑in owner editor." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config={theme:{extend:{fontFamily:{cairo:['Cairo','system-ui','sans-serif'],inter:['Inter','system-ui','sans-serif']},colors:{brand:{600:'#1d4ed8',700:'#1e40af'}}}},darkMode:'class'};</script>
+  <style>html{scroll-behavior:smooth} .soft{box-shadow:0 10px 25px rgba(0,0,0,.08),0 1px 2px rgba(0,0,0,.05)} .rounded-2xl{border-radius:1.25rem}</style>
+</head>
+<body class="bg-white text-gray-900 dark:bg-gray-950 dark:text-gray-100 font-cairo">
+  <!-- Header (brand removed as requested) -->
+  <header class="sticky top-0 z-40 bg-white/80 dark:bg-gray-950/80 backdrop-blur border-b border-gray-200 dark:border-gray-800">
+    <nav class="max-w-6xl mx-auto px-4 h-14 flex items-center justify-between">
+      <div></div>
+      <div class="flex items-center gap-2">
+        <button id="langAr" class="text-sm px-2 py-1 rounded-lg border border-gray-300 dark:border-gray-700 hidden">AR</button>
+        <button id="langEn" class="text-sm px-2 py-1 rounded-lg border border-gray-300 dark:border-gray-700">EN</button>
+        <button id="ownerBtn" class="text-sm px-3 py-1 rounded-lg border border-gray-300 dark:border-gray-700">Owner</button>
+        <button id="theme" class="text-sm px-3 py-1 rounded-lg border border-gray-300 dark:border-gray-700">🌓</button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="max-w-6xl mx-auto px-4 py-10 sm:py-16">
+    <div class="grid lg:grid-cols-2 gap-10 items-center">
+      <div>
+        <h1 id="name" class="text-4xl sm:text-5xl font-extrabold leading-tight">sulaiman mohammed mohammed al-shabebi</h1>
+        <h2 id="role" class="mt-3 text-xl font-bold text-brand-600">مهندس ميكاترونكس — سنة رابعة</h2>
+        <p class="mt-4 text-lg text-gray-700 dark:text-gray-300" id="project"></p>
+        <div class="mt-3 text-sm text-gray-600 dark:text-gray-400">
+          <div id="edu"></div>
+          <div id="loc"></div>
+        </div>
+      </div>
+      <div>
+        <div class="aspect-[4/3] rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800 bg-gray-100 dark:bg-gray-900 soft flex items-center justify-center">
+          <img id="photo" alt="Profile photo" class="w-full h-full object-cover hidden">
+          <div id="photoPh" class="text-center p-6 text-sm text-gray-600 dark:text-gray-400">
+            ضع صورتك في <code>assets/profile.jpg</code> أو حددها في <code>assets/config.json</code> الحقل <code>profileImage</code>.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience / Skills / Education -->
+  <section class="max-w-6xl mx-auto px-4 py-8">
+    <div class="grid lg:grid-cols-3 gap-6">
+      <div class="rounded-2xl border border-gray-200 dark:border-gray-800 p-6 soft bg-white dark:bg-gray-950">
+        <h3 class="text-2xl font-extrabold" id="expTitle"></h3>
+        <ul id="expList" class="mt-3 space-y-2 text-gray-700 dark:text-gray-300 list-disc ps-5"></ul>
+      </div>
+      <div class="rounded-2xl border border-gray-200 dark:border-gray-800 p-6 soft bg-white dark:bg-gray-950">
+        <h3 class="text-2xl font-extrabold" id="skillsTitle"></h3>
+        <ul id="skillsList" class="mt-3 space-y-2 text-gray-700 dark:text-gray-300 list-disc ps-5"></ul>
+      </div>
+      <div class="rounded-2xl border border-gray-200 dark:border-gray-800 p-6 soft bg-white dark:bg-gray-950">
+        <h3 class="text-2xl font-extrabold" id="eduTitle"></h3>
+        <ul id="eduList" class="mt-3 space-y-2 text-gray-700 dark:text-gray-300 list-disc ps-5"></ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="max-w-6xl mx-auto px-4 py-10">
+    <div class="rounded-2xl border border-gray-200 dark:border-gray-800 p-6 soft bg-white dark:bg-gray-950">
+      <h3 class="text-2xl font-extrabold" id="contactTitle"></h3>
+      <div class="grid sm:grid-cols-3 gap-4 mt-4">
+        <a id="emailLink" class="p-4 rounded-xl border border-gray-200 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-900"></a>
+        <div id="phoneBox" class="p-4 rounded-xl border border-gray-200 dark:border-gray-800"></div>
+        <div id="locationBox" class="p-4 rounded-xl border border-gray-200 dark:border-gray-800"></div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-8 border-t border-gray-200 dark:border-gray-800 text-sm text-gray-600 dark:text-gray-400">
+    <div class="max-w-6xl mx-auto px-4 flex items-center justify-between">
+      <span>© <span id="year"></span> <span id="footName"></span></span>
+      <a href="#" id="switchLang" class="underline">English</a>
+    </div>
+  </footer>
+
+  <!-- Owner Login (hints removed) -->
+  <dialog id="loginDlg" class="rounded-2xl p-0 bg-transparent">
+    <div class="bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100 rounded-2xl p-6 w-[95vw] max-w-md border border-gray-200 dark:border-gray-800 soft">
+      <h4 class="text-lg font-bold mb-3" id="loginTitle">تسجيل الدخول</h4>
+      <div class="grid gap-3">
+        <input id="pw" type="password" class="p-3 rounded-lg border border-gray-300 dark:border-gray-700" placeholder="كلمة المرور" autocomplete="new-password">
+        <input id="code" type="password" class="p-3 rounded-lg border border-gray-300 dark:border-gray-700" placeholder="الرمز" autocomplete="one-time-code">
+        <div class="flex gap-2 justify-end">
+          <button id="loginCancel" class="px-4 py-2 rounded-lg border">إلغاء</button>
+          <button id="loginGo" class="px-4 py-2 rounded-lg bg-brand-600 text-white">دخول</button>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Owner Editor -->
+  <dialog id="editorDlg" class="rounded-2xl p-0 bg-transparent">
+    <div class="bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100 rounded-2xl p-6 w-[95vw] max-w-4xl border border-gray-200 dark:border-gray-800 soft">
+      <div class="flex items-center justify-between">
+        <h4 class="text-lg font-bold">تحرير المحتوى</h4>
+        <button id="closeEditor" class="px-3 py-1 rounded-lg border">إغلاق</button>
+      </div>
+
+      <div class="mt-4 grid md:grid-cols-2 gap-4">
+        <div class="md:col-span-2"><label class="block text-sm font-semibold">الاسم</label><input id="f_name" class="w-full p-2 rounded-lg border border-gray-300 dark:border-gray-700"></div>
+        <div><label class="block text-sm font-semibold">الصفة (AR)</label><input id="f_role_ar" class="w-full p-2 rounded-lg border border-gray-300 dark:border-gray-700"></div>
+        <div><label class="block text-sm font-semibold">Role (EN)</label><input id="f_role_en" class="w-full p-2 rounded-lg border border-gray-300 dark:border-gray-700"></div>
+        <div><label class="block text-sm font-semibold">مشروع التخرج (AR)</label><textarea id="f_proj_ar" rows="2" class="w-full p-2 rounded-lg border border-gray-300 dark:border-gray-700"></textarea></div>
+        <div><label class="block text-sm font-semibold">Graduation Project (EN)</label><textarea id="f_proj_en" rows="2" class="w-full p-2 rounded-lg border border-gray-300 dark:border-gray-700"></textarea></div>
+        <div><label class="block text-sm font-semibold">الجامعة (AR)</label><input id="f_uni_ar" class="w-full p-2 rounded-lg border border-gray-300 dark:border-gray-700"></div>
+        <div><label class="block text-sm font-semibold">University (EN)</label><input id="f_uni_en" class="w-full p-2 rounded-lg border border-gray-300 dark:border-gray-700"></div>
+        <div><label class="block text-sm font-semibold">الدرجة (AR)</label><input id="f_deg_ar" class="w-full p-2 rounded-lg border border-gray-300 dark:border-gray-700"></div>
+        <div><label class="block text-sm font-semibold">Degree (EN)</label><input id="f_deg_en" class="w-full p-2 rounded-lg border border-gray-300 dark:border-gray-700"></div>
+        <div><label class="block text-sm font-semibold">Email</label><input id="f_email" class="w-full p-2 rounded-lg border border-gray-300 dark:border-gray-700"></div>
+        <div><label class="block text-sm font-semibold">Phone</label><input id="f_phone" class="w-full p-2 rounded-lg border border-gray-300 dark:border-gray-700"></div>
+        <div class="md:col-span-2"><label class="block text-sm font-semibold">Location</label><input id="f_location" class="w-full p-2 rounded-lg border border-gray-300 dark:border-gray-700"></div>
+
+        <div class="md:col-span-2"><label class="block text-sm font-semibold">الخبرة (AR) — سطر لكل نقطة</label><textarea id="f_exp_ar" rows="4" class="w-full p-2 rounded-lg border border-gray-300 dark:border-gray-700"></textarea></div>
+        <div class="md:col-span-2"><label class="block text-sm font-semibold">Experience (EN) — one bullet per line</label><textarea id="f_exp_en" rows="4" class="w-full p-2 rounded-lg border border-gray-300 dark:border-gray-700"></textarea></div>
+
+        <div class="md:col-span-2"><label class="block text-sm font-semibold">المهارات (AR) — سطر لكل مهارة</label><textarea id="f_skills_ar" rows="4" class="w-full p-2 rounded-lg border border-gray-300 dark:border-gray-700"></textarea></div>
+        <div class="md:col-span-2"><label class="block text-sm font-semibold">Skills (EN) — one bullet per line</label><textarea id="f_skills_en" rows="4" class="w-full p-2 rounded-lg border border-gray-300 dark:border-gray-700"></textarea></div>
+
+        <div class="md:col-span-2"><label class="block text-sm font-semibold">التعليم (AR) — سطر لكل بند</label><textarea id="f_edu_ar" rows="3" class="w-full p-2 rounded-lg border border-gray-300 dark:border-gray-700"></textarea></div>
+        <div class="md:col-span-2"><label class="block text-sm font-semibold">Education (EN) — one line each</label><textarea id="f_edu_en" rows="3" class="w-full p-2 rounded-lg border border-gray-300 dark:border-gray-700"></textarea></div>
+
+        <div class="md:col-span-2">
+          <label class="block text-sm font-semibold">الصورة الشخصية (اختياري)</label>
+          <input id="f_photo" type="file" accept=".jpg,.jpeg,.png,.webp" class="w-full p-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-white">
+          <p class="text-xs text-gray-500 mt-1">بعد اختيار صورة، اضغط زر "تنزيل profile.jpg" ثم ارفعها إلى مجلد <code>assets/</code>.</p>
+          <div class="mt-2 flex gap-2">
+            <button id="downloadImg" class="px-3 py-2 rounded-lg border hidden">تنزيل profile.jpg</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-4 flex flex-wrap gap-3">
+        <button id="saveLocal" class="px-4 py-2 rounded-xl bg-green-600 text-white">حفظ محليًا</button>
+        <button id="exportCfg" class="px-4 py-2 rounded-xl border">تصدير config.json</button>
+        <button id="resetCfg" class="px-4 py-2 rounded-xl border">استعادة الإفتراضي</button>
+      </div>
+
+      <div class="mt-6 rounded-2xl border border-gray-200 dark:border-gray-800 p-4">
+        <h5 class="font-semibold mb-2">بيانات الدخول</h5>
+        <div class="grid sm:grid-cols-2 gap-3">
+          <input id="f_new_pw" type="password" class="p-2 rounded-lg border border-gray-300 dark:border-gray-700" placeholder="كلمة مرور جديدة">
+          <input id="f_new_code" type="password" class="p-2 rounded-lg border border-gray-300 dark:border-gray-700" placeholder="رمز جديد">
+        </div>
+        <button id="saveCreds" class="mt-3 px-4 py-2 rounded-xl border">حفظ بيانات الدخول</button>
+      </div>
+    </div>
+  </dialog>
+
+  <script>
+  const $ = s => document.querySelector(s);
+  const root = document.documentElement;
+  $('#year').textContent = new Date().getFullYear();
+
+  // Theme
+  (function(){ const t=localStorage.getItem('theme'); if(t==='dark'||(!t&&matchMedia('(prefers-color-scheme: dark)').matches)) root.classList.add('dark');
+  $('#theme').addEventListener('click',()=>{ root.classList.toggle('dark'); localStorage.setItem('theme', root.classList.contains('dark')?'dark':'light'); }); })();
+
+  // Normalize digits (Arabic numerals -> ASCII)
+  function normalizeDigits(str){
+    if(!str) return '';
+    const map = {'٠':'0','١':'1','٢':'2','٣':'3','٤':'4','٥':'5','٦':'6','٧':'7','٨':'8','٩':'9','۰':'0','۱':'1','۲':'2','۳':'3','۴':'4','۵':'5','۶':'6','۷':'7','۸':'8','۹':'9'};
+    return str.split('').map(ch=>map[ch]??ch).join('');
+  }
+
+  // Defaults (filled from your CV)
+  const defaults = {
+    name: "sulaiman mohammed mohammed al-shabebi",
+    role_ar: "مهندس ميكاترونكس — سنة رابعة",
+    role_en: "Mechatronics Engineer — Year 4",
+    project_ar: "مشروع تخرج: عنكبوت روبوتي سداسي الأرجل يعمل بمهام متعددة كبديل آمن في البيئات الخطرة أو صعبة الوصول.",
+    project_en: "Graduation project: multi‑purpose hexapod spider robot as a safer alternative in hazardous or hard‑to‑reach environments.",
+    university_ar: "جامعة الأكاديميين العرب للعلوم والتكنولوجيا",
+    university_en: "Arab Academicians University of Science and Technology",
+    degree_ar: "بكالوريوس هندسة ميكاترونكس تقني — سنة رابعة (2025)",
+    degree_en: "B.Sc. in Mechatronics Technology — Year 4 (2025)",
+    email: "a.a.alshapipi@gmail.com",
+    phone: "778857221",
+    location: "Ibb, Yemen",
+    exp_ar: [
+      "مشروع تخرج — عنكبوت روبوتي سداسي الأرجل: تصميم ميكانيكي SolidWorks، اختيار المحركات والحساسات، تكامل المتحكم Arduino/PLC، بناء نموذج أولي واختبارات ميدانية.",
+      "زيارة ميدانية — محطة حزيز لتوليد الطاقة: مبادئ التوليد والتوزيع وأنظمة الحماية وإجراءات السلامة.",
+      "اطلاع صناعي — مصنع إسمنت عمران: خطوط إنتاج ثقيلة، محركات وأنظمة تحكم، ومناولة المواد.",
+      "ميني‑مشاريع تطبيقية: قراءة حساسات والتحكم بمحركات بالـArduino، منطق سلم PLC start/stop، لوحات مراقبة LabVIEW، ومحاكاة تحكم أولية في MATLAB.",
+      "تقارير وعروض تقديمية: إعداد تقارير تقنية وعروض حديثة بواسطة Microsoft Office."
+    ],
+    exp_en: [
+      "Capstone — Hexapod robot: SolidWorks mechanical design; actuator/sensor selection; Arduino/PLC integration; prototype build and terrain testing.",
+      "Field exposure — Hizyaz Power Station: generation & distribution basics, protection systems, on‑site safety.",
+      "Industrial exposure — Amran Cement Plant: heavy production lines, motors, control systems, material handling.",
+      "Mini‑projects: Arduino sensing & motor control; basic PLC ladder; LabVIEW dashboards; preliminary control in MATLAB.",
+      "Reporting & presentations with Microsoft Office."
+    ],
+    skills_ar: [
+      "SolidWorks: تصميم ثلاثي الأبعاد وتجميعات ورسومات تصنيع.",
+      "MATLAB/Simulink: تحليل بيانات ومحاكاة تحكم أولية.",
+      "Arduino: برمجة متحكمات وتكامل حساسات ومحركات.",
+      "PLC: أساسيات Ladder وإشارات الإدخال/الإخراج.",
+      "LabVIEW: واجهات اكتساب بيانات ومراقبة بسيطة.",
+      "Microsoft Office: تقارير Word، عروض PowerPoint، جداول Excel."
+    ],
+    skills_en: [
+      "SolidWorks (3D CAD, assemblies, manufacturing drawings).",
+      "MATLAB/Simulink (data analysis, basic control simulations).",
+      "Arduino (MCU programming, sensor/actuator integration).",
+      "PLC (intro Ladder, I/O mapping).",
+      "LabVIEW (basic DAQ/monitoring UIs).",
+      "Microsoft Office (Word, PowerPoint, Excel)."
+    ],
+    edu_ar: [
+      "بكالوريوس ميكاترونكس تقني — سنة رابعة، جامعة الأكاديميين العرب (2025).",
+      "دبلوم لغة إنجليزية (متوسط/متقدم) — LPM (2019).",
+      "ثانوية عامة علمي بمعدل 86.25 (2018)."
+    ],
+    edu_en: [
+      "B.Sc. Mechatronics Technology — Year 4, Arab Academicians University (2025).",
+      "English diploma (intermediate/advanced), LPM Institute (2019).",
+      "High school, science stream, GPA 86.25 (2018)."
+    ],
+    profileImage: ""
+  };
+
+  const text = k => (Array.isArray(k)? k : [k]).filter(Boolean);
+
+  function safeJSON(x){ try{ return JSON.parse(x) } catch(e){ return null } }
+
+  async function loadConfig(){
+    let cfg = {...defaults};
+    try { const r = await fetch('assets/config.json',{cache:'no-store'}); if(r.ok){ const c=await r.json(); if(c) cfg={...cfg,...c}; } } catch(e){}
+    const local = safeJSON(localStorage.getItem('siteConfig')); if(local) cfg={...cfg,...local};
+    // normalize arrays
+    ['exp_ar','exp_en','skills_ar','skills_en','edu_ar','edu_en'].forEach(k=>{
+      const v = cfg[k];
+      if (typeof v === 'string') cfg[k] = v.split(/\r?\n/).map(s=>s.trim()).filter(Boolean);
+      else if (!Array.isArray(v)) cfg[k] = [];
+    });
+    return cfg;
+  }
+
+  function applyImage(cfg){
+    const img=$('#photo'), ph=$('#photoPh'); const list=[];
+    if(cfg.profileImage) list.push('assets/'+cfg.profileImage);
+    ['jpg','jpeg','png','webp'].forEach(ext=>list.push('assets/profile.'+ext));
+    (async function next(i=0){
+      if(i>=list.length){ ph.classList.remove('hidden'); img.classList.add('hidden'); return; }
+      const url=list[i]+'?v='+Date.now();
+      const ok=await new Promise(r=>{ const t=new Image(); t.onload=()=>r(true); t.onerror=()=>r(false); t.src=url; });
+      if(ok){ img.src=url; img.classList.remove('hidden'); ph.classList.add('hidden'); } else next(i+1);
+    })();
+  }
+
+  function setLang(lang){
+    document.documentElement.dir = (lang==='ar')?'rtl':'ltr';
+    document.body.style.fontFamily = (lang==='ar') ? 'Cairo' : 'Inter';
+    $('#langAr').classList.toggle('hidden', lang==='ar');
+    $('#langEn').classList.toggle('hidden', lang==='en');
+    $('#switchLang').textContent = (lang==='ar') ? 'English' : 'العربية';
+    localStorage.setItem('lang', lang);
+  }
+
+  function render(cfg, lang){
+    $('#name').textContent = cfg.name;
+    $('#footName').textContent = cfg.name;
+    if(lang==='ar'){
+      $('#role').textContent = cfg.role_ar;
+      $('#project').textContent = cfg.project_ar;
+      $('#edu').textContent = 'الجامعة: ' + cfg.university_ar + (cfg.degree_ar? ' — ' + cfg.degree_ar : '');
+      $('#loc').textContent = 'الموقع: ' + cfg.location;
+      $('#contactTitle').textContent = 'تواصل';
+      $('#emailLink').innerHTML = '<div class="font-semibold">البريد</div><div class="text-gray-600 dark:text-gray-400">'+(cfg.email||'')+'</div>'; $('#emailLink').href='mailto:'+(cfg.email||'');
+      $('#phoneBox').innerHTML = '<div class="font-semibold">الهاتف</div><div class="text-gray-600 dark:text-gray-400">'+(cfg.phone||'')+'</div>';
+      $('#locationBox').innerHTML = '<div class="font-semibold">الموقع</div><div class="text-gray-600 dark:text-gray-400">'+(cfg.location||'')+'</div>';
+      $('#expTitle').textContent='الخبرة'; $('#skillsTitle').textContent='المهارات'; $('#eduTitle').textContent='التعليم';
+      $('#expList').innerHTML = (cfg.exp_ar||[]).map(x=>'<li>'+x+'</li>').join('');
+      $('#skillsList').innerHTML = (cfg.skills_ar||[]).map(x=>'<li>'+x+'</li>').join('');
+      $('#eduList').innerHTML = (cfg.edu_ar||[]).map(x=>'<li>'+x+'</li>').join('');
+    } else {
+      $('#role').textContent = cfg.role_en;
+      $('#project').textContent = cfg.project_en;
+      $('#edu').textContent = 'University: ' + cfg.university_en + (cfg.degree_en? ' — ' + cfg.degree_en : '');
+      $('#loc').textContent = 'Location: ' + cfg.location;
+      $('#contactTitle').textContent = 'Contact';
+      $('#emailLink').innerHTML = '<div class="font-semibold">Email</div><div class="text-gray-600 dark:text-gray-400">'+(cfg.email||'')+'</div>'; $('#emailLink').href='mailto:'+(cfg.email||'');
+      $('#phoneBox').innerHTML = '<div class="font-semibold">Phone</div><div class="text-gray-600 dark:text-gray-400">'+(cfg.phone||'')+'</div>';
+      $('#locationBox').innerHTML = '<div class="font-semibold">Location</div><div class="text-gray-600 dark:text-gray-400">'+(cfg.location||'')+'</div>';
+      $('#expTitle').textContent='Experience'; $('#skillsTitle').textContent='Skills'; $('#eduTitle').textContent='Education';
+      $('#expList').innerHTML = (cfg.exp_en||[]).map(x=>'<li>'+x+'</li>').join('');
+      $('#skillsList').innerHTML = (cfg.skills_en||[]).map(x=>'<li>'+x+'</li>').join('');
+      $('#eduList').innerHTML = (cfg.edu_en||[]).map(x=>'<li>'+x+'</li>').join('');
+    }
+    applyImage(cfg);
+  }
+
+  function safeParseTextarea(val){ return (val||'').split(/\r?\n/).map(s=>s.trim()).filter(Boolean); }
+
+  // Credentials
+  function getCreds(){ const c = safeJSON(localStorage.getItem('adminCreds')); return (c&&c.password&&c.code)?c:{password:'admin', code:'11223341'}; }
+  function setCreds(c){ localStorage.setItem('adminCreds', JSON.stringify(c)); }
+
+  // --- UI bindings ---
+  (function(){
+    const cur = localStorage.getItem('lang') || 'ar'; setLang(cur);
+
+    $('#langAr').addEventListener('click', ()=>{ setLang('ar'); loadConfig().then(c=>render(c,'ar')); });
+    $('#langEn').addEventListener('click', ()=>{ setLang('en'); loadConfig().then(c=>render(c,'en')); });
+    $('#switchLang').addEventListener('click', (e)=>{ e.preventDefault(); const next=((localStorage.getItem('lang')||'ar')==='ar')?'en':'ar'; setLang(next); loadConfig().then(c=>render(c,next)); });
+
+    $('#ownerBtn').addEventListener('click', ()=> $('#loginDlg').showModal());
+    $('#loginCancel').addEventListener('click', ()=> $('#loginDlg').close());
+    $('#loginGo').addEventListener('click', ()=>{
+      const pw = normalizeDigits($('#pw').value.trim());
+      const cd = normalizeDigits($('#code').value.trim());
+      const {password, code} = getCreds();
+      if (pw===password && cd===code){ $('#loginDlg').close(); loadConfig().then(openEditor); }
+      else { alert('بيانات الدخول غير صحيحة.'); }
+    });
+
+    $('#closeEditor').addEventListener('click', ()=> $('#editorDlg').close());
+
+    $('#saveLocal').addEventListener('click', ()=>{
+      const cfg = {
+        name: $('#f_name').value.trim(),
+        role_ar: $('#f_role_ar').value.trim(),
+        role_en: $('#f_role_en').value.trim(),
+        project_ar: $('#f_proj_ar').value.trim(),
+        project_en: $('#f_proj_en').value.trim(),
+        university_ar: $('#f_uni_ar').value.trim(),
+        university_en: $('#f_uni_en').value.trim(),
+        degree_ar: $('#f_deg_ar').value.trim(),
+        degree_en: $('#f_deg_en').value.trim(),
+        email: $('#f_email').value.trim(),
+        phone: normalizeDigits($('#f_phone').value.trim()),
+        location: $('#f_location').value.trim(),
+        exp_ar: safeParseTextarea($('#f_exp_ar').value),
+        exp_en: safeParseTextarea($('#f_exp_en').value),
+        skills_ar: safeParseTextarea($('#f_skills_ar').value),
+        skills_en: safeParseTextarea($('#f_skills_en').value),
+        edu_ar: safeParseTextarea($('#f_edu_ar').value),
+        edu_en: safeParseTextarea($('#f_edu_en').value)
+      };
+      localStorage.setItem('siteConfig', JSON.stringify(cfg));
+      const lang = localStorage.getItem('lang') || 'ar'; render({...defaults, ...cfg}, lang);
+      alert('تم الحفظ. لتطبيقه للزوار: صدر config.json وارفعه في assets/.');
+    });
+
+    $('#exportCfg').addEventListener('click', ()=>{
+      const cfg = safeJSON(localStorage.getItem('siteConfig')) || {};
+      const blob = new Blob([JSON.stringify(cfg, null, 2)], {type:'application/json'});
+      const a = document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='config.json'; a.click(); URL.revokeObjectURL(a.href);
+    });
+
+    $('#resetCfg').addEventListener('click', ()=>{
+      if(!confirm('استعادة الإعدادات الافتراضية؟')) return;
+      localStorage.removeItem('siteConfig'); const lang=localStorage.getItem('lang')||'ar'; render(defaults, lang);
+    });
+
+    $('#saveCreds').addEventListener('click', ()=>{
+      const np = $('#f_new_pw').value.trim(); const nc = normalizeDigits($('#f_new_code').value.trim());
+      const creds = getCreds(); if(np) creds.password=np; if(nc) creds.code=nc; setCreds(creds); alert('تم تحديث بيانات الدخول.');
+    });
+
+    // image load/download
+    $('#f_photo').addEventListener('change', async (e)=>{
+      const f=e.target.files[0]; if(!f) return; const buf=await f.arrayBuffer();
+      const blob = new Blob([buf], {type:f.type||'image/jpeg'});
+      const url = URL.createObjectURL(blob); $('#photo').src=url; $('#photo').classList.remove('hidden'); $('#photoPh').classList.add('hidden');
+      const a=document.createElement('a'); a.href=url; a.download='profile.jpg'; $('#downloadImg').classList.remove('hidden'); $('#downloadImg').onclick=()=>a.click();
+    });
+  })();
+
+  async function openEditor(cfg){
+    $('#f_name').value=cfg.name||'';
+    $('#f_role_ar').value=cfg.role_ar||''; $('#f_role_en').value=cfg.role_en||'';
+    $('#f_proj_ar').value=cfg.project_ar||''; $('#f_proj_en').value=cfg.project_en||'';
+    $('#f_uni_ar').value=cfg.university_ar||''; $('#f_uni_en').value=cfg.university_en||'';
+    $('#f_deg_ar').value=cfg.degree_ar||''; $('#f_deg_en').value=cfg.degree_en||'';
+    $('#f_email').value=cfg.email||''; $('#f_phone').value=cfg.phone||''; $('#f_location').value=cfg.location||'';
+    $('#f_exp_ar').value=(cfg.exp_ar||[]).join('\n'); $('#f_exp_en').value=(cfg.exp_en||[]).join('\n');
+    $('#f_skills_ar').value=(cfg.skills_ar||[]).join('\n'); $('#f_skills_en').value=(cfg.skills_en||[]).join('\n');
+    $('#f_edu_ar').value=(cfg.edu_ar||[]).join('\n'); $('#f_edu_en').value=(cfg.edu_en||[]).join('\n');
+    $('#editorDlg').showModal();
+  }
+
+  (async function start(){ const lang=localStorage.getItem('lang')||'ar'; const cfg=await loadConfig(); render(cfg, lang); })();
+  </script>
+</body>
+</html>
