@@ -1,3 +1,35 @@
+<script>
+// ======= إعداد المفاتيح حسب اسم المستودع =======
+const REPO_ID = (location.pathname.split('/')[1] || '_root');
+const CREDS_KEY = `adminCreds@${REPO_ID}`;
+const CFG_KEY   = `siteConfig@${REPO_ID}`;
+
+// دوال التعامل مع بيانات الدخول
+function getCreds() {
+  try {
+    const c = JSON.parse(localStorage.getItem(CREDS_KEY));
+    return (c && c.password && c.code) ? c : { password: 'admin', code: '11223341' };
+  } catch {
+    return { password: 'admin', code: '11223341' };
+  }
+}
+function setCreds(c) {
+  localStorage.setItem(CREDS_KEY, JSON.stringify(c));
+}
+
+// دوال التعامل مع إعدادات الموقع
+function getConfig() {
+  try {
+    return JSON.parse(localStorage.getItem(CFG_KEY) || 'null');
+  } catch {
+    return null;
+  }
+}
+function setConfig(cfg) {
+  localStorage.setItem(CFG_KEY, JSON.stringify(cfg));
+}
+</script>
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
